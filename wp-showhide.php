@@ -9,8 +9,8 @@ Author URI: http://lesterchan.net
 */
 
 
-/*  
-	Copyright 2011  Lester Chan  (email : lesterchan@gmail.com)
+/*
+	Copyright 2013  Lester Chan  (email : lesterchan@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,15 +41,15 @@ function showhide_shortcode($atts, $content = null) {
 	// Variables
 	$post_id = get_the_id();
 	$word_count = number_format_i18n(sizeof(explode(' ', strip_tags($content))));
-	
+
 	// Extract ShortCode Attributes
 	extract(shortcode_atts(array(
 		'type' => 'pressrelease',
 		'more_text' => __('Show Press Release (%s More Words)'),
-		'less_text' => __('Hide Press Release (%s Less Words)'), 
+		'less_text' => __('Hide Press Release (%s Less Words)'),
 		'hidden' => 'yes'
 	), $atts));
-	
+
 	// More/Less Text
 	$more_text = sprintf($more_text, $word_count);
 	$less_text = sprintf($less_text, $word_count);
@@ -66,7 +66,7 @@ function showhide_shortcode($atts, $content = null) {
 	// Format HTML Output
 	$output = '<div class="'.$type.'-link"><a href="#" onclick="showhide_toggle(\''.$type.'\', '.$post_id.', \''.esc_js($more_text).'\', \''.esc_js($less_text).'\'); return false;"><span id="'.$type.'-toggle-'.$post_id.'">'.$more_text.'</span></a></div>';
 	$output .= '<div id="'.$type.'-content-'.$post_id.'" class="'.$type.'-content" style="'.$hidden_css.'">'.$content.'</div>';
-	
+
 	return $output;
 }
 
