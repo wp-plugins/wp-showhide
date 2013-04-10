@@ -6,6 +6,7 @@ Description: Allows you to embed content within your blog post via WordPress Sho
 Version: 1.00
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
+Text Domain: wp-showhide
 */
 
 
